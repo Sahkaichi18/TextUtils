@@ -11,7 +11,7 @@ function App() {
   <Navbar title = "TextUtils" about = "About us"/>
     <div className = "container my-3">
         <TextForm heading = "Enter the text to analyze below" />
-        {/* <About/> */}
+        <About/>
     </div>
   </>
   );
