@@ -4,6 +4,8 @@ import './App.css';
 import Navbar from './components/Navbar';
 import TextForm from './components/TextForm';
 import React, { useState } from 'react'; 
+import Alert from './components/Alert';
+
 
 
 function App() {
@@ -23,10 +25,11 @@ function App() {
   return (
     <>
   <Navbar title = "TextUtils" mode = {mode} about = "About us" toggleMode = {toggleMode}/>
+  <Alert alert = "This is an alert" />
     <div className = "container my-3">
         <TextForm heading = "Enter the text to analyze below"  mode = {mode}/>
         {/* <About/> */}
-    </div>
+    </div> 
   </>
   );
 }
