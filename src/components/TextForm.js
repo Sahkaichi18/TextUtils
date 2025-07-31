@@ -10,31 +10,40 @@ export default function TextForm(props) {
     // console.log("Uppercase was clicked to : " +" "+ text);
     let newText = text.toUpperCase();
     setText(newText)
+    props.showAlert("Your text has been converted to uppercase!" , "success : ");
   }
 
   const handleLoClick = () =>{
     // console.log("Lowercase was clicked to : "+" "+ text);
     let newText = text.toLowerCase();
     setText(newText)
+    props.showAlert("Your text has been converted to lowercase!" , "success : ");
   }
 
   const handleCopy = () => {
     navigator.clipboard.writeText(text);
+    props.showAlert("Your text has been copied!" , "success : ");
+
   }
 
     const handleExtraSpace = () => {
     let newText = text.split(/[ ]+/);
     setText(newText.join(" "))
+    props.showAlert("Your text has no extra space!" , "success : ");
+
   }
 
   const handleReverse = () =>{
     let newText = text.split("").reverse().join("");
     setText(newText)
+    props.showAlert("Your text has been reversed!" , "success : ");
+
   }
 
   const handleClear = () =>{
     let newText = ("");
     setText(newText)
+    props.showAlert("Your text has been cleared!" , "success : ");
   }
 
   const handleOnChange =(event)=>{
