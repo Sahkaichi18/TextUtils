@@ -23,6 +23,7 @@ export default function TextForm(props) {
 
   const handleCopy = () => {
     navigator.clipboard.writeText(text);
+    document.getSelection().removeAllRanges(); //to remove the text selection after copying
     props.showAlert("Your text has been copied!" , "success : ");
 
   }
