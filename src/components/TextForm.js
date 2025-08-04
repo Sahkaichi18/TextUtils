@@ -1,6 +1,7 @@
 import React, {useState} from 'react'
 
 export default function TextForm(props) {
+
   const [text , setText] = useState('');
 
     //text = new text //wrong way to change the state.
@@ -57,14 +58,14 @@ export default function TextForm(props) {
         <h1>{props.heading}</h1>
         <div className="mb-3">
         
-            <textarea className="form-control" value = {text} onChange = {handleOnChange} style = {{backgroundColor : props.mode === 'dark' ? 'grey' : 'white', color : props.mode === 'dark' ? 'white' : '#070e22' }} id="myBox" rows="8"></textarea>
+            <textarea className="form-control" value = {text} onChange = {handleOnChange} style = {{backgroundColor : props.mode === 'dark' ? '#080819' : 'white', color : props.mode === 'dark' ? 'white' : '#070e22' }} id="myBox" rows="8"></textarea>
         </div>
-        <button className = "btn btn-primary mx-2 my-1" onClick = {handleUpClick}>Convert to Upper case</button>
-        <button className = "btn btn-primary mx-2 my-1" onClick = {handleLoClick}>Convert to Lower case</button>
-        <button className = "btn btn-primary mx-2 my-1" onClick = {handleCopy}>Copy text</button>
-        <button className = "btn btn-primary mx-2 my-1" onClick = {handleExtraSpace}>Remove extra space </button>
-        <button className = "btn btn-primary mx-2 my-1" onClick = {handleReverse}>Reverse text</button>
-        <button className = "btn btn-danger mx-2 my-1" onClick = {handleClear}>Clear text</button>
+        <button disabled = {text.length === 0} className = "btn btn-primary mx-2 my-1" onClick = {handleUpClick}>Convert to Upper case</button>
+        <button disabled = {text.length === 0} className = "btn btn-primary mx-2 my-1" onClick = {handleLoClick}>Convert to Lower case</button>
+        <button disabled = {text.length === 0} className = "btn btn-primary mx-2 my-1" onClick = {handleCopy}>Copy text</button>
+        <button disabled = {text.length === 0} className = "btn btn-primary mx-2 my-1" onClick = {handleExtraSpace}>Remove extra space </button>
+        <button disabled = {text.length === 0} className = "btn btn-primary mx-2 my-1" onClick = {handleReverse}>Reverse text</button>
+        <button disabled = {text.length === 0} className = "btn btn-danger mx-2 my-1" onClick = {handleClear}>Clear text</button>
         
 
 
@@ -74,9 +75,9 @@ export default function TextForm(props) {
     <div className="conatiner my-3" style = {{color : props.mode === 'dark' ? 'white' : '#070e22'}}>
     <h2>Your text Summary</h2>
     <p>{text.split(" ").filter((element)=>{return element.length !== 0}).length} words and {text.length} characters.</p>
-    <p>It will take {0.008 * (text.trim() === '' ? 0 : text.trim().split(/\s+/).length)} minutes to read the text provided.</p>
+    <p>It will take {0.008 * text.split(" ").filter((element)=>{return element.length !== 0}).length} minutes to read the text provided.</p>
     <h2>Preview</h2>
-    <p>{text.length > 0 ? text : "Enter your text in the textbox above to preview it here"}</p>
+    <p>{text.length > 0 ? text : "Nothing to preview yet!"}</p>
     </div>
     </>
   )
