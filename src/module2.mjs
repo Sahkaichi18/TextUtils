@@ -3,5 +3,5 @@ const b = "Rohan";
 const c = "Akash";
 const d = "Priyanaka";
 
-export default d;
-export {a, b, c};
+export default c;
+export {a, b, d};
